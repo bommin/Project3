@@ -1,0 +1,73 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="{% static 'price_prediction/custom.js'%}"></script>
+</head>
+<body>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <div class="form-example">
+          <label for="manufacturer">차량 제조회사를 입력하세요.</label>
+          <select name="manufacturer" id="manufacturer" required onchange="subselect(this)">
+            <option value="" selected disabled>제조사를 선택하세요</option>
+            <option value="현대">현대</option>
+            <option value="기아">기아</option>
+            <option value="르노코리아">르노코리아</option>
+            <option value="쉐보레">쉐보레</option>
+            <option value="쌍용">쌍용</option>
+            <option value="제네시스">제네시스</option>
+          </select>
+        </div>
+        <div class="form-example">
+            <label for="fuel">연료 종류를 입력하세요.</label>
+            <select name="fuel" id="fuel">
+              <option value="" selected disabled>연료를 선택하세요</option>
+              <option value="가솔린">가솔린</option>
+              <option value="디젤">디젤</option>
+              <option value="LPG">LPG</option>
+              <option value="하이브리드">하이브리드</option>
+            </select>
+        </div>
+        <div class="form-example">
+            <label for="simple">모델을 입력하세요.</label>
+            <select name="simple" id="simple" required >
+            </select>
+          </div>
+        <div class="form-example">
+          <label for="year">차량 연식을 입력하세요.</label>
+          <input type="text" name="year" id="year" required>
+        </div>
+        <div class="form-example">
+            <label for="cc">차량 배기량을 입력하세요.</label>
+            <input type="text" name="cc" id="cc" required>
+          </div>
+          <div class="form-example">
+            <label for="km">운행 Km를 입력하세요.</label>
+            <input type="text" name="km" id="km" required>
+          </div>
+          <div class="form-example">
+            <label for="og">차량 출고가를 입력하세요.</label>
+            <input type="text" name="og" id="og" required>
+          </div>
+        <div class="form-example">
+          <input type="submit" value="Subscribe!">
+        </div>
+    </form>
+      
+
+
+
+
+
+
+    hi!
+    {{predict_price}}
+    {{deep}}
+</body>
+</html>

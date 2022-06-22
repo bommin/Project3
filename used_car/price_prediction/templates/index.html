@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE HTML>
+
+<html>
+	<head>
+		<title>Get Your Next Car</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/fontawesome-all.min.css'%}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/noscript.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/main.css'%}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'css/made.css'%}" />
+
+
+		
+	</head>
+	<body id = "haewon"class="is-preload">
+
+		<!-- Header -->
+			<header id="header">
+				<a href="index.html" class="title">Get Your Next Car</a>
+				<nav>
+					<ul>
+						<li><a href="/usedcar/">Home</a></li>
+						<li><a href="/usedcar/index/" class="active">Prediction</a></li>
+						<li><a href="">Elements</a></li>
+					</ul>
+				</nav>
+			</header>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+			<!-- Main -->
+				<section id="main" class="wrapper style2 fade-up">
+					<div class="inner">
+						<h2 class="major">Search Your Car</h2>
+						<hr>
+						<form action="" method="post">
+							{% csrf_token %}
+							<div class="form-example">
+							<label for="manufacturer">차량 제조회사를 입력하세요.</label>
+							<select name="manufacturer" id="manufacturer" required onchange="subselect(this)">
+								<option value="" selected disabled>제조사를 선택하세요</option>
+								<option value="현대">현대</option>
+								<option value="기아">기아</option>
+								<option value="르노코리아">르노코리아</option>
+								<option value="쉐보레">쉐보레</option>
+								<option value="쌍용">쌍용</option>
+								<option value="제네시스">제네시스</option>
+							</select>
+							</div>
+							<div class="form-example">
+								<label for="fuel">연료 종류를 입력하세요.</label>
+								<select name="fuel" id="fuel">
+								<option value="" selected disabled>연료를 선택하세요</option>
+								<option value="가솔린">가솔린</option>
+								<option value="디젤">디젤</option>
+								<option value="LPG">LPG</option>
+								<option value="하이브리드">하이브리드</option>
+								</select>
+							</div>
+							<div class="form-example">
+								<label for="simple">모델을 입력하세요.</label>
+								<select name="simple" id="simple" required >
+								</select>
+							</div>
+							<div class="form-example">
+							<label for="year">차량 연식을 입력하세요.</label>
+							<input type="text" name="year" id="year" required>
+							</div>
+							<div class="form-example">
+								<label for="cc">차량 배기량을 입력하세요.</label>
+								<input type="text" name="cc" id="cc" required>
+							</div>
+							<div class="form-example">
+								<label for="km">운행 Km를 입력하세요.</label>
+								<input type="text" name="km" id="km" required>
+							</div>
+							<div class="form-example">
+								<label for="og">차량 출고가를 입력하세요.</label>
+								<input type="text" name="og" id="og" required>
+							</div>
+							<hr>
+							<div class="form-example" style = "float : right;">
+							<input type="submit" value="Search!">
+							</div>
+						</form>
+
+	
+
+
+						<!-- <div class="dropdown">
+							<div class = "content">
+								<select class="dropdown-button" name="" id="" onchange="" >
+									<option selected hidden>제조사</option>
+									<option value = "1">현대</option>
+									<option value = "2">기아</option>
+									<option value = "3">제네시스</option>
+									<option value = "4">쉐보레</option>
+									<option value = "5">르노코리아</option>
+									<option value = "6">쌍용</option>
+								</select>
+								
+								<select class="dropdown-button" name="" id="" onchange="" >
+									<option selected hidden>모델</option>
+								</select>
+								<select class="dropdown-button" name="" id="" onchange="" >
+
+								</select>
+								<select class="dropdown-button" name="" id="" onchange="" >
+
+								</select>
+								<select class="dropdown-button" name="" id="" onchange="" >
+
+								</select>
+								<select class="dropdown-button" name="" id="" onchange="" >
+
+								</select>
+								<select class="dropdown-button" name="" id="" onchange="" >
+
+								</select>
+							</div>
+						</div> -->
+					</div>
+					
+					<div class="inner">
+						<section>
+							<span class="icon solid major fa-desktop"></span>
+							<div class = "">
+								<h2>시세정보</h2>
+								<h3>{{deep}} ~ {{predict_price}}</h3>
+							</div>
+								
+						</section>
+						<div class="features">
+							
+							<section style="padding:0; margin:0;">
+								<form action="" method="post" width= "1412px" height = "734px">
+									{% csrf_token %}
+									<iframe src="http://127.0.0.1:8000/usedcar/graph"  width= "1412px" height = "734px" ></iframe>
+								</form>
+							</section>
+						</div>
+					</div>
+					
+				</section>	
+			
+			</div>
+
+		<!-- Footer --> 
+			<footer id="footer" class="wrapper alt">
+				<div class="inner">
+					<ul class="menu">
+						<li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'js/custom.js' %}"></script>
+			<script src="{% static 'js/jquery.min.js'%}"></script>
+			<script src="{% static 'js/jquery.scrollex.min.js'%}"></script>
+			<script src="{% static 'js/browser.min.js'%}"></script>
+			<script src="{% static 'js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'js/util.js'%}"></script>
+			<script src="{% static 'js/main.js'%}"></script>
+		
+			
+	</body>
+</html>
